@@ -11,5 +11,5 @@ test:
 
 .PHONY: docs
 docs:
-	sphinx-build -b html -d _build/doctrees . _build/html
+	sphinx-build -b html -d _tmp/_build/doctrees . docs
 

@@ -1,0 +1,177 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>TikzBuilder &#8212; TikzBuilder 0.1.beta documentation</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.beta',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="TikzBuilder" href="../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="TikzBuilder"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">TikzBuilder 0.1.beta documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tikzbuilder">
+<h1>TikzBuilder<a class="headerlink" href="#tikzbuilder" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/rblack42/TikzBuilder">TikzBuilder</a> is a Python application to build nice (IMHO) diagrams for my
+Computer Architecture class. The underlying graphics engine used in this
+project is the package <a class="reference external" href="https://sourceforge.net/projects/pgf/">TikZ</a>, part of the LaTeX system. <a class="reference external" href="https://sourceforge.net/projects/pgf/">TikZ</a> is a powerful,
+but complex graphics system capable of building a wide variety of publication
+quality graphics images. The package is intended to generate images that are
+merged into LaTeX documents. However, this project simply generates a single
+PDF image that can be converted into other formats as needed. I routinely
+convert them into PNG files to be displayed on the web. Later versions of this
+package will create data files that can be included in conventional <a class="reference external" href="https://www.latex-project.org/">LaTeX</a>
+documents.</p>
+<div class="section" id="why-tizbuilder">
+<h2>Why TizBuilder?<a class="headerlink" href="#why-tizbuilder" title="Permalink to this headline">¶</a></h2>
+<p>I began working on building my architecture diagrams using TikZ directly. My
+first adventures with the package were a bit difficult, largely because the
+capabilities of this package are huge, and they are matched by a documentation
+file over 1000 pages in length. As the images got more complex, I found myself
+digging deeper into the package, and in the end I was spnding too much time
+learning about the TikZ engine, and getting my diagrams done! (This is a common
+problem when exploring new technologies!)</p>
+<p>I decided that I knew enough about TikZ to build the images, but creating the
+layout I wanted involved adjusting coordinates for a large number of graphics
+objects. I neede a way to specify the objects I need to display in a simple
+way.</p>
+<p>I decided to define the image I want using a <a class="reference external" href="https://www.json.org/">Json</a> data file. <a class="reference external" href="https://github.com/rblack42/TikzBuilder">TikzBuilder</a>
+reads this file, then places the graphics components using the data stored in
+the fata file. The output is a conventional <a class="reference external" href="https://www.latex-project.org/">LaTeX</a> document that is processed
+by <code class="docutils literal"><span class="pre">pdflatex</span></code>. The full power of Tik is not exercises in this process, but it
+suits my needs and is a tool thta cna be extended if needed.</p>
+</div>
+<div class="section" id="machine-data-file">
+<h2>Machine Data File<a class="headerlink" href="#machine-data-file" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">TikzBuilder</a><ul>
+<li><a class="reference internal" href="#why-tizbuilder">Why TizBuilder?</a></li>
+<li><a class="reference internal" href="#machine-data-file">Machine Data File</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../index.html"
+                          title="Previous page">&larr; TikzBuilder</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rst/introduction.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="TikzBuilder"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">TikzBuilder 0.1.beta documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Roie R. Black.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
