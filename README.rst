@@ -9,5 +9,5 @@ Python project to build TikZ images for my Computer Architecture class
 :School: Austin Community College, Austin, Texas
 :Email: rblack@austincc.edu
 
-..  image:: https://travis-ci.org/rblack42/TikzBuilder#
+..  image:: https://travis-ci.org/rblack42/TikzBuilder.svg?branch=master 
 
