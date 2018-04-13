@@ -3,6 +3,7 @@
 __pycache__
 _build
 _venv
+_tmp
 
 # Vim
 *~
