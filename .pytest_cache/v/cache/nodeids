@@ -1,3 +1,4 @@
 [
-  "tests/test_capitalize.py::test_capital_case"
+  "tests/test_capitalize.py::test_capital_case", 
+  "tests/test_package.py::test_package"
 ]

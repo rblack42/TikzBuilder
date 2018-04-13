@@ -7,7 +7,7 @@ all:
 
 .PHONY: test
 test:
-	pytest
+	pytest test_setup.py tests/*
 
 .PHONY: docs
 docs:
