@@ -4,5 +4,6 @@
   "tests/test_page.py::test_page_head", 
   "tests/test_page.py::test_page_foot", 
   "tests/test_page.py::test_page_image", 
-  "tests/test_page.py::test_dummy_page"
+  "tests/test_page.py::test_dummy_page", 
+  "tests/test_page.py::test_page"
 ]

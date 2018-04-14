@@ -1,12 +1,13 @@
 import json
 import sys
+from .parts.ALU import ALU
 
-class TikzBuilder(object):
+class Builder(object):
 
     HEAD = r"""
-\documentclass{standalone}
-\usepackage{tikz}
-\usetikzpackage{circuitikz}
+\documentclass[preview]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes.geometric}
 \begin{document}
 \begin{tikzpicture}
 """
@@ -16,12 +17,13 @@ class TikzBuilder(object):
 \end{document}
 """
 
-    def __init__(self,fname='examples/machine.json'):
+    def __init__(self,fname='examples/demo.json'):
         self.fname = fname
         self.head = self.HEAD.split()
         self.foot = self.FOOT.split()
         self.tikz = []
         self.json = []
+        self.texfile = 'demo.tex'
 
     def load(self):
         try:
@@ -36,25 +38,32 @@ class TikzBuilder(object):
             print("Error opening data file:", self.fname)
             sys.exit()
         print("Building image from",self.fname)
-        print(self.json)
-
+        self.build()
+        fout = open(self.texfile,'w')
+        self.assemble()
+        for l in self.tex:
+            fout.write("%s\n" % l)
+        fout.close()
 
     def version(self):
         return "version: 0.1.0.dev"
 
-    def page_head(self):
+    def get_head(self):
         return self.head
 
-    def page_foot(self):
+    def get_foot(self):
         return self.foot
 
-    def page_image(self):
+    def get_tex(self):
+        return self.tex
+
+    def get_image(self):
         return self.tikz
 
-    def page_json(self):
+    def get_json(self):
         return self.json
 
-    def page_assemble(self):
+    def assemble(self):
         tex = []
         for l in self.head:
             tex.append(l)
@@ -62,3 +71,17 @@ class TikzBuilder(object):
             tex.append(l)
         for l in self.foot:
             tex.append(l)
+        self.tex = tex
+
+    def build(self):
+        """process data file adding "parts"""
+        tex = []
+        if len(self.json) > 0:
+            for p in range(len(self.json)):
+                data = self.json[p]
+                part = data["part"]
+                if part == "ALU":
+                    alu = ALU(data)
+                    tex.extend(alu.draw())
+        self.tikz.extend(tex)
+

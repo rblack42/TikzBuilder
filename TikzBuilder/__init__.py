@@ -1,2 +1,2 @@
-from .TikzBuilder import TikzBuilder
+__all__ = ['TikzBuilder']
 

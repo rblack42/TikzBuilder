@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-from TikzBuilder import TikzBuilder
+from TikzBuilder.Builder import Builder
 
 def usage():
     msg = """
@@ -18,7 +18,7 @@ except:
 if fname == "--help" or fname == "-h":
     usage()
 
-tb = TikzBuilder(fname)
+tb = Builder(fname)
 print("TikzBuilder (",tb.version(),")")
 tb.run()
 

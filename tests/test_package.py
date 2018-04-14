@@ -1,6 +1,6 @@
-from TikzBuilder import TikzBuilder
+from TikzBuilder.Builder import Builder
 
 def test_package():
-    tb = TikzBuilder()
+    tb = Builder()
     assert "version" in tb.version()
 
