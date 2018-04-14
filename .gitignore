@@ -12,3 +12,8 @@ _sandbox
 
 # Mac
 .DS_Store
+
+# TeX
+*.log
+*.aux
+
