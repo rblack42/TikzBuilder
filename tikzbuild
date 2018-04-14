@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import sys
+from TikzBuilder import TikzBuilder
+
+def usage():
+    msg = """
+tikzbuild imagefile[.json]
+"""
+    print(msg)
+    sys.exit()
+
+try:
+    fname = sys.argv[1]
+except:
+   fname = 'examples/demo.json'
+
+if fname == "--help" or fname == "-h":
+    usage()
+
+tb = TikzBuilder(fname)
+print("TikzBuilder (",tb.version(),")")
+tb.run()
+

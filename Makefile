@@ -3,7 +3,7 @@ PROJECT	:= $(shell basename $(PWD))
 
 .PHONY: all
 all:
-	$(PY) run.py
+	$(PY) ./tikzbuild
 
 .PHONY: test
 test:
