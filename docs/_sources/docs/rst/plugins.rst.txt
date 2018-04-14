@@ -1,0 +1,48 @@
+TikzBuilder Plugins
+###################
+
+:Ref: http://drunkenpython.org/tag/dispatcher.html
+
+To make it easy to add new shaped to this tool, the individual shapes are
+defined in a class with an associated handler that can be dropped into a single
+``shapes`` directory. Here is an example program that uses this idea (adapter
+from the reference above):
+
+..  literalinclude::    code/test_plugin.py
+    :linenos:
+    :caption: test_plugins.py
+
+To run this code, we create a ``spahes folder with this ``__init-_.py fole:
+
+..  literalinclude::    code/shapes/__init__.py
+    :linenos:
+    :caption: shapes/__init__.py
+
+The magic in this file just populated the ``__all__ list with the names of all
+files beginning with ``handle_``. Importing this package gives access to all
+such files.
+
+The individual shape handlers look like this:
+
+..  literalinclude::    shapes/handle_ALU.py
+    
+..  literalinclude::    shapes/handle_REG.py
+
+Each of these handlrs imprts the shape clss file. Each such class must
+implement the ``draw`` method used to create the actual shape TikZ_ code needed
+for that shape. In this example, these methods just display some text.
+
+And the class files for each shape:
+
+..  literalinclude::    shapes/ALu.py
+
+..  literalinclude::    shapes.REG.py
+
+Here is an example of running this code
+
+..  command-output::    python3 test_plugins.py ALU alu
+    :cwd:   code
+
+..  command-output::    python3 test_plugins.py REG pc
+    :cwd:   code
+

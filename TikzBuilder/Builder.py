@@ -1,6 +1,7 @@
 import json
 import sys
-from .parts.ALU import ALU
+import traceback
+from .shapes import *
 
 class Builder(object):
 
@@ -16,7 +17,6 @@ class Builder(object):
 \end{tikzpicture}
 \end{document}
 """
-
     def __init__(self,fname='examples/demo.json'):
         self.fname = fname
         self.head = self.HEAD.split()
@@ -79,9 +79,16 @@ class Builder(object):
         if len(self.json) > 0:
             for p in range(len(self.json)):
                 data = self.json[p]
-                part = data["part"]
-                if part == "ALU":
-                    alu = ALU(data)
-                    tex.extend(alu.draw())
-        self.tikz.extend(tex)
+                shape = data["part"]
+                try:
+                    cname = getattr(
+                            sys.modules[
+                                'TikzBuilder.shapes.%s' % shape
+                            ],shape
+                    )
+                    handler = cname()
+                    data = handler.draw('alu')
+                    self.tikz.extend(data)
+                except:
+                    traceback.print_exc()
 

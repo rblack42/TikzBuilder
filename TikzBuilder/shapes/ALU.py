@@ -4,8 +4,8 @@ from .Pin_t import Pin_t
 
 class ALU(BasePart):
 
-    def __init__(self,data):
-        BasePart.__init__(self,data)
+    def __init__(self):
+        BasePart.__init__(self,{})
         self.h = 5
         self.label = "alu"
         self.points = [
@@ -28,13 +28,13 @@ class ALU(BasePart):
         ]
         self.anchors = []
 
-    def draw(self):
+    def draw(self,name):
         h = self.h
         scale = self.h/5.0
         x = self.x
         y = self.y
-        label = self.label
-        tex = []
+        label = name
+        tex = ['data is here']
         tex.extend([r'\begin{scope}[shift={(%f,%f)}]' % (x,y)])
         # add pins
         pin = Pin()

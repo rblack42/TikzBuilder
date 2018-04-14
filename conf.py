@@ -20,12 +20,13 @@ release = '0.1.beta'
 # -- General configuration ---------------------------------------------------
 extensions = [
     'sphinx.ext.githubpages',
+    'sphinx_exts.programoutput'
 ]
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
 language = None
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_venv']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_venv', 'README.rst']
 pygments_style = 'sphinx'
 
 

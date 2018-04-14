@@ -6,21 +6,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TikzBuilder &#8212; TikzBuilder 0.1.beta documentation</title>
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.1.beta',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -31,8 +23,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="TikzBuilder" href="../index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
+  </head><body>
     <div class="relbar-top">
         
     <div class="related" role="navigation" aria-label="related navigation">
@@ -74,18 +65,19 @@ documents.</p>
 first adventures with the package were a bit difficult, largely because the
 capabilities of this package are huge, and they are matched by a documentation
 file over 1000 pages in length. As the images got more complex, I found myself
-digging deeper into the package, and in the end I was spnding too much time
-learning about the TikZ engine, and getting my diagrams done! (This is a common
-problem when exploring new technologies!)</p>
+digging deeper into the package, and in the end I was spending too much time
+learning about the <a class="reference external" href="https://sourceforge.net/projects/pgf/">TikZ</a> engine, and getting my diagrams done! (This is a
+common problem when exploring new technologies!)</p>
 <p>I decided that I knew enough about TikZ to build the images, but creating the
 layout I wanted involved adjusting coordinates for a large number of graphics
-objects. I neede a way to specify the objects I need to display in a simple
+objects. I needed a way to specify the objects I need to display in a simple
 way.</p>
 <p>I decided to define the image I want using a <a class="reference external" href="https://www.json.org/">Json</a> data file. <a class="reference external" href="https://github.com/rblack42/TikzBuilder">TikzBuilder</a>
 reads this file, then places the graphics components using the data stored in
-the fata file. The output is a conventional <a class="reference external" href="https://www.latex-project.org/">LaTeX</a> document that is processed
-by <code class="docutils literal"><span class="pre">pdflatex</span></code>. The full power of Tik is not exercises in this process, but it
-suits my needs and is a tool thta cna be extended if needed.</p>
+the data file. The output is a conventional <a class="reference external" href="https://www.latex-project.org/">LaTeX</a> document that is processed
+by <code class="docutils literal notranslate"><span class="pre">pdflatex</span></code>. The full power of <a class="reference external" href="https://sourceforge.net/projects/pgf/">TikZ</a> is not exercised in this process, but
+it suits my current needs, and <a class="reference external" href="https://github.com/rblack42/TikzBuilder">TikzBuilder</a> a tool that cab be extended if
+needed.</p>
 </div>
 <div class="section" id="machine-data-file">
 <h2>Machine Data File<a class="headerlink" href="#machine-data-file" title="Permalink to this headline">¶</a></h2>
@@ -122,12 +114,14 @@ suits my needs and is a tool thta cna be extended if needed.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -170,7 +164,7 @@ suits my needs and is a tool thta cna be extended if needed.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Roie R. Black.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

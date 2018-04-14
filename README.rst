@@ -2,6 +2,7 @@ TikzBuilder
 ###########
 
 ..  image:: https://travis-ci.org/rblack42/TikzBuilder.svg?branch=master 
+
 ..  image:: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
     :alt: BSD 3-Clause License
 
