@@ -77,9 +77,16 @@ class Builder(object):
         """process data file adding "parts"""
         tex = []
         if len(self.json) > 0:
+            self.pin_data = {}
             for p in range(len(self.json)):
                 data = self.json[p]
                 shape = data["part"]
+                if shape == "WIRE": continue
+                label = data["label"]
+                x = float(data["x"])
+                y = float(data["y"])
+                color = data["color"]
+                scale = float(data["scale"])
                 try:
                     cname = getattr(
                             sys.modules[
@@ -87,8 +94,29 @@ class Builder(object):
                             ],shape
                     )
                     handler = cname()
-                    data = handler.draw('alu')
+                    data,pin_d = handler.draw(x,y,scale,color)
+                    self.pin_data[label] = pin_d
                     self.tikz.extend(data)
                 except:
                     traceback.print_exc()
+
+            # sweep over data handling wires
+            for p in range(len(self.json)):
+                data = self.json[p]
+                shape = data["part"]
+                if not shape == "WIRE": continue
+                try:
+                    cname = getattr(
+                            sys.modules[
+                                'TikzBuilder.shapes.%s' % shape
+                            ], shape
+                    )
+
+                    handler = cname()
+                    tex = handler.draw(data,self.pin_data)
+                    self.tikz.extend(tex)
+                except:
+                    traceback.print_exc()
+
+
 

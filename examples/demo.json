@@ -1,6 +1,63 @@
 [
     {
-        "part": "ALU"
+        "part": "ALU",
+        "label": "alu",
+        "x": "0",
+        "y": "0.75",
+        "scale": "0.5",
+        "color": "green"
+    },
+    {
+        "part": "REG2",
+        "label": "pc",
+        "x": "4",
+        "y": "0",
+        "scale": "1",
+        "color": "green"
+    },
+    {
+        "part": "MUX2",
+        "label": "mux1",
+        "x": "2",
+        "y": "1",
+        "scale": "1",
+        "color": "green"
+    },
+    {
+        "part": "MEM2",
+        "label": "im",
+        "x": "6",
+        "y": "1",
+        "scale": "1",
+        "color": "yellow"
+    },
+    {
+        "part": "WIRE",
+        "source": "alu.pin3",
+        "drives": "mux1.pin1"
+    },
+    {
+        "part": "WIRE",
+        "source": "pc.pin2",
+        "drives": "im.pin1"
+    },
+    {
+        "part": "WIRE",
+        "source": "mux1.pin3",
+        "drives": "pc.pin1"
+    },
+    {
+        "part": "TEXT",
+        "x": "-1",
+        "y": "2.75",
+        "scale": "1",
+        "label": "txt1",
+        "color": "red"
+    },
+    {
+        "part": "WIRE",
+        "source": "alu.pin2",
+        "drives": "txt1.pin1"
     }
 ]
 
