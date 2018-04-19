@@ -10,3 +10,8 @@ _venv
 # Mac
 .DS_Store
 
+# TikZ
+*.pdf
+*.tex
+*,aux
+*.log

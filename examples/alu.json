@@ -1,0 +1,11 @@
+[
+    {
+        "part": "ALU",
+        "label": "alu",
+        "x": "0",
+        "y": "0.75",
+        "scale": "0.5",
+        "color": "green"
+    }
+]
+

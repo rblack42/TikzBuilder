@@ -23,7 +23,7 @@ class Builder(object):
         self.foot = self.FOOT.split()
         self.tikz = []
         self.json = []
-        self.texfile = 'demo.tex'
+        self.texfile = self.fname + '.tex'
 
     def load(self):
         try:
@@ -81,42 +81,55 @@ class Builder(object):
             for p in range(len(self.json)):
                 data = self.json[p]
                 shape = data["part"]
-                if shape == "WIRE": continue
-                label = data["label"]
-                x = float(data["x"])
-                y = float(data["y"])
-                color = data["color"]
-                scale = float(data["scale"])
-                try:
-                    cname = getattr(
-                            sys.modules[
-                                'TikzBuilder.shapes.%s' % shape
-                            ],shape
-                    )
-                    handler = cname()
-                    data,pin_d = handler.draw(x,y,scale,color)
-                    self.pin_data[label] = pin_d
-                    self.tikz.extend(data)
-                except:
-                    traceback.print_exc()
-
-            # sweep over data handling wires
-            for p in range(len(self.json)):
-                data = self.json[p]
-                shape = data["part"]
-                if not shape == "WIRE": continue
-                try:
-                    cname = getattr(
+                if not shape == "WIRE":
+                    label = data["label"]
+                    x = float(data["x"])
+                    y = float(data["y"])
+                    color = data["color"]
+                    scale = float(data["scale"])
+                if shape == "BAR":
+                    pins = data["pinset"]
+                    try:
+                        cname = getattr(
                             sys.modules[
                                 'TikzBuilder.shapes.%s' % shape
                             ], shape
-                    )
+                        )
+                        handler = cname(pins)
+                        data,pin_d = handler.draw(x,y,scale,color)
+                        self.pin_data[label] = pin_d
+                        self.tikz.extend(data)
+                    except:
+                        traceback.print_exc()
 
-                    handler = cname()
-                    tex = handler.draw(data,self.pin_data)
-                    self.tikz.extend(tex)
-                except:
-                    traceback.print_exc()
+                elif shape == "WIRE":
+                    # sweep over data handling wires
+                    try:
+                        cname = getattr(
+                            sys.modules[
+                                'TikzBuilder.shapes.%s' % shape
+                            ], shape
+                        )
+                        handler = cname()
+                        tex = handler.draw(data,self.pin_data)
+                        self.tikz.extend(tex)
+                    except:
+                        traceback.print_exc()
+                # general shape
+                else:
+                    try:
+                        cname = getattr(
+                            sys.modules[
+                                'TikzBuilder.shapes.%s' % shape
+                            ],shape
+                        )
+                        handler = cname()
+                        data,pin_d = handler.draw(x,y,scale,color)
+                        self.pin_data[label] = pin_d
+                        self.tikz.extend(data)
+                    except:
+                        traceback.print_exc()
+
 
 
 

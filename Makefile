@@ -13,3 +13,8 @@ test:
 docs:
 	sphinx-build -b html -d _tmp/_build/doctrees . docs
 
+.PHONY: clean
+clean:
+	$(RM) *.aux *.log *.pdf *.tex *.gz
+	$(RM) examples/*.aux examples/*.log examples/*.tex examples/*.pdf
+

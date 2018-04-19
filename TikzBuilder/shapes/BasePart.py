@@ -54,7 +54,8 @@ class BasePart(object):
         tex.extend([draw])
 
         # place shape label
-        tex.extend([r'\node at (%f,%f) {%s};' % (0.5*w*scale,yl*scale,label)])
+        tex.extend([r'\node at (%f,%f) {%s};' % \
+                (0.5*w*scale,yl*scale,label)])
 
 # close scope
         tex.extend([r'\end{scope}'])
